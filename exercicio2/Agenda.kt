@@ -6,7 +6,7 @@ class Agenda(){
 
     fun salvarContato(nome: String, telefone: String) {
 
-        if (telefone !in listaContatos && listaContatos.size <= 10) {
+        if (telefone !in listaContatos && listaContatos.size < 10) {
             listaContatos[telefone] = nome      // Atribui um nome (valor) a um telefone (chave)
             println("Contato adicionado com sucesso!")
         } else {
@@ -42,9 +42,11 @@ class Agenda(){
         println(" Nome ...... Telefone ")
         println("-------------------------")
 
-        for (item in listaContatos) {
-            println("${item.value} .... ${item.key}")
+
+        for ((telefone, nome) in listaContatos) {
+            println("$nome ..... $telefone")
         }
     }
+
 
 }
